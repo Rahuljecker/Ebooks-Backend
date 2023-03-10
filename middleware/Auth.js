@@ -19,3 +19,8 @@ if(req.user.role!=="admin") return next(new ErrorHandler("You have no access to 
 
 next()
 }
+export const AuthorizeBySubscribers=(req,res,next)=>{
+if(req.user.subscription.status!=="active" && req.user.role!=="admin") return next(new ErrorHandler("Only subscriber can access this Resource",403));
+
+next()
+}

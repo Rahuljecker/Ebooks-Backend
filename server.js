@@ -4,7 +4,7 @@ import { connectDB } from "./config/database.js";
 import cloudinary from "cloudinary"
 import nodecron from "node-cron";
 import { Stats } from "./models/Stats.js";
-
+import Razorpay from "razorpay"
 
 mongoose.set('strictQuery',true)
 
@@ -25,6 +25,14 @@ nodecron.schedule("0 0 0 1 * *",async()=>{
         console.log(error)
     }
 })
+
+
+export const instance = new Razorpay({
+    key_id: process.env.RAZORPY_KEY_ID,
+    key_secret: process.env.RAZORPAY_SECRET_KEY,
+  });
+
+  
 app.listen(process.env.PORT,()=>{
     console.log(`server listening on port ${process.env.PORT}`);
 })

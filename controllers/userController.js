@@ -246,13 +246,12 @@ export const RemoveFromplaylist = CatchAsyncError(async (req, res, next) => {
 //Admin Routes
 export const getAllUsersAdmin = CatchAsyncError(async (req, res, next) => {
     const users=await User.find({});
-
-
   res.status(200).json({
     success: true,
     users
   });
 });
+
 export const ChangeRole = CatchAsyncError(async (req, res, next) => {
     const user=await User.findById(req.params.id);
     if(!user) return next(new ErrorHandler("You are not a user please subscribe!",404)); 
