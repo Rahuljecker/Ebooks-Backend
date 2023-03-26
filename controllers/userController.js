@@ -257,7 +257,7 @@ export const ChangeRole = CatchAsyncError(async (req, res, next) => {
     if(!user) return next(new ErrorHandler("You are not a user please subscribe!",404)); 
 
     if(user.role==="user") user.role="admin"
-    else user.role==="user"
+    else user.role="user"
 
     await user.save();
 
