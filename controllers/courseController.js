@@ -68,7 +68,6 @@ export const getCourseLectures = CatchAsyncError(async (req, res, next) => {
 export const AddLectures = CatchAsyncError(async (req, res, next) => {
   const { id } = req.params;
   const { title, description } = req.body;
-  // const file=req.file;
   const course = await Course.findById(id);
   if (!course) return next(new ErrorHandler("Course Not Found!", 404));
 
