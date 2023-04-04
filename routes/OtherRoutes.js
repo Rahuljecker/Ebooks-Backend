@@ -5,7 +5,7 @@ import { AuthorizeByAdmin, isAuthorized } from "../middleware/Auth.js";
 const router=express.Router();
 
 //contact us
-router.route("/contact").post(Contact)
+router.route("/contact").post(Contact)  
 
 //request a course
 router.route("/requestcourse").post(RequestAcourse)
